@@ -21,10 +21,10 @@ export default class App extends React.Component {
     fetch('api/uploads' {
       method: 'POST',
       // headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({imageId: formData})
+      body: JSON.stringify({ body: formData})
     })
     .then(res => res.json())
-    .then(formData.reset());
+    .then(() => formData.reset());
   }
 
   render() {
