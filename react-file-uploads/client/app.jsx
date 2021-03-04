@@ -18,13 +18,13 @@ export default class App extends React.Component {
      */
     event.preventDefault();
     const formData = new FormData(event.target);
-    fetch('api/uploads' {
+    fetch('api/uploads', {
       method: 'POST',
       // headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ body: formData})
     })
     .then(res => res.json())
-    .then(() => formData.reset());
+    .then(() => event.target.reset());
   }
 
   render() {
@@ -33,7 +33,7 @@ export default class App extends React.Component {
         <div className="row min-vh-100 justify-content-center align-items-center">
           <div className="col-4">
             <h3 className="text-center mb-5">React File Uploads</h3>
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmit} id="the-form">
               <div className="mb-3">
                 <label htmlFor="caption" className="form-label">
                   Caption
